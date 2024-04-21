@@ -12,19 +12,16 @@ class Content extends Model
     protected $guarded = false;
 
     // Define the fillable fields
-    protected $fillable = ['title', 'author', 'image'];
+    protected $fillable = ['title', 'introduction', 'grammar', 'vocabulary', 'tasks'];
 
-    // Accessor for getting the full URL of the image
-    public function getImageUrlAttribute()
-    {
-        if ($this->image) {
-            return asset('storage/' . $this->image);
-        }
-        return null;
-    }
-
+    // Accessor for getting the full URL of the imag
     public function course(): BelongsTo
     {
         return $this->belongsTo(Content::class);
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }

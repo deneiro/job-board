@@ -25,15 +25,15 @@
 
 <aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
     <div class="p-6">
-        <a href="#" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">{{ $user -> name }}</a>
+        <a href="index.html" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">Admin</a>
         <button class="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
-            <a href="{{ route('course.create') }}"><i class="fas fa-plus mr-3"></i> New Course</a>
+            <i class="fas fa-plus mr-3"></i> New Report
         </button>
     </div>
     <nav class="text-white text-base font-semibold pt-3">
-        <a href="{{ route('course.index') }}" class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
+        <a href="index.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
             <i class="fas fa-tachometer-alt mr-3"></i>
-            Courses
+            Dashboard
         </a>
         <a href="blank.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
             <i class="fas fa-sticky-note mr-3"></i>
@@ -47,7 +47,7 @@
             <i class="fas fa-align-left mr-3"></i>
             Forms
         </a>
-        <a href="tabs.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+        <a href="tabs.html" class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
             <i class="fas fa-tablet-alt mr-3"></i>
             Tabbed Content
         </a>
@@ -62,7 +62,7 @@
     </a>
 </aside>
 
-<div class="w-full flex flex-col h-screen overflow-y-hidden">
+<div class="relative w-full flex flex-col h-screen overflow-y-hidden">
     <!-- Desktop Header -->
     <header class="w-full items-center bg-white py-2 px-6 hidden sm:flex">
         <div class="w-1/2"></div>
@@ -91,7 +91,7 @@
 
         <!-- Dropdown Nav -->
         <nav :class="isOpen ? 'flex': 'hidden'" class="flex flex-col pt-4">
-            <a href="index.html" class="flex items-center active-nav-link text-white py-2 pl-4 nav-item">
+            <a href="index.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
                 <i class="fas fa-tachometer-alt mr-3"></i>
                 Dashboard
             </a>
@@ -107,7 +107,7 @@
                 <i class="fas fa-align-left mr-3"></i>
                 Forms
             </a>
-            <a href="tabs.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+            <a href="tabs.html" class="flex items-center active-nav-link text-white py-2 pl-4 nav-item">
                 <i class="fas fa-tablet-alt mr-3"></i>
                 Tabbed Content
             </a>
@@ -136,20 +136,42 @@
         </button> -->
     </header>
 
-    <div class="w-full overflow-x-hidden border-t flex flex-col">
+    <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
         <main class="w-full flex-grow p-6">
-            <h1 class="text-3xl text-black pb-6">Courses</h1>
-            @foreach($courses as $course)
-                <a href="{{ route('course.show', $course->id) }}" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 mb-4">
-                    <div class="flex flex-col justify-between p-4 ">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Title: {{ $course->title }}</h5>
-                        <div>
-                            Level: {{ $course->englishLevel }}
-                        </div>
-                        <p class="mb-3 font-normal text-gray-700">Description: {{ $course->description }}</p>
+            <h1 class="text-3xl text-black pb-6"> Title </h1>
+
+            <div class="w-full mt-6" x-data="{ openTab: 1 }">
+                <div>
+                    <ul class="flex border-b">
+                        <li class="-mb-px mr-1" @click="openTab = 1">
+                            <a :class="openTab === 1 ? 'border-l border-t border-r rounded-t text-blue-700 font-semibold' : 'text-blue-500 hover:text-blue-800'" class="bg-white inline-block py-2 px-4 font-semibold" href="#">Introduction</a>
+                        </li>
+                        <li class="mr-1" @click="openTab = 2">
+                            <a :class="openTab === 2 ? 'border-l border-t border-r rounded-t text-blue-700 font-semibold' : 'text-blue-500 hover:text-blue-800'" class="bg-white inline-block py-2 px-4 font-semibold" href="#">Vocabulary</a>
+                        </li>
+                        <li class="mr-1" @click="openTab = 3">
+                            <a :class="openTab === 3 ? 'border-l border-t border-r rounded-t text-blue-700 font-semibold' : 'text-blue-500 hover:text-blue-800'" class="bg-white inline-block py-2 px-4 font-semibold" href="#">Grammar</a>
+                        </li>
+                        <li class="mr-1" @click="openTab = 4">
+                            <a :class="openTab === 4 ? 'border-l border-t border-r rounded-t text-blue-700 font-semibold' : 'text-blue-500 hover:text-blue-800'" class="bg-white inline-block py-2 px-4 font-semibold" href="#">Tasks</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6">
+                    <div id="" class="" x-show="openTab === 1">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed luctus ligula at condimentum sagittis. Maecenas velit libero, fermentum a leo quis, pretium egestas risus. Proin tempus sem magna, vitae convallis purus rhoncus non. Aenean tristique congue metus in lobortis. Nullam nisi leo, luctus in sapien eget, accumsan mattis leo. Morbi magna dolor, dapibus ut ligula eget, commodo venenatis risus. Nunc quis dignissim velit. Donec nec dapibus ligula. Etiam quis libero ultrices, semper arcu id, suscipit purus. Phasellus eu arcu tincidunt dui pellentesque feugiat et at risus. In hendrerit laoreet ante ac imperdiet. Nam tortor urna, laoreet in malesuada quis, pretium cursus dolor.
                     </div>
-                </a>
-            @endforeach
+                    <div id="" class="" x-show="openTab === 2">
+                        Curabitur at lacinia felis. Curabitur elit ante, efficitur molestie iaculis non, blandit dictum dui. Fusce ac faucibus lorem, in aliquet metus. Praesent bibendum justo vitae ante imperdiet, sit amet posuere tortor tincidunt. Nam a arcu eros. In vitae augue tempus, ullamcorper lectus ut, egestas erat. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean imperdiet eget sapien nec consequat. Etiam imperdiet diam ac mattis gravida.
+                    </div>
+                    <div id="" class="" x-show="openTab === 3">
+                        Duis imperdiet ullamcorper nibh, sed euismod dolor facilisis sit amet. Etiam quis cursus lorem. Vivamus euismod accumsan neque lobortis tempus. Praesent nec lacinia odio, a dictum risus. Sed eget dictum turpis, vitae iaculis orci. Vivamus laoreet consequat velit, non viverra diam pulvinar a. Aliquam bibendum ligula lacus, ac convallis ipsum hendrerit ut. Suspendisse rutrum dui libero, non aliquam lectus lobortis at. Donec gravida finibus sollicitudin. Nulla ut metus finibus purus vehicula porttitor. Fusce id sem non nisl pulvinar scelerisque.
+                    </div>
+                    <div id="" class="" x-show="openTab === 4">
+                        Mauris viverra viverra dolor quis gravida. Duis pharetra felis id tellus faucibus pulvinar. Integer non ligula lobortis, hendrerit est eget, maximus sapien. Suspendisse vel nibh feugiat, porta ex et, dignissim diam. Maecenas finibus consectetur efficitur. Sed tempus vehicula interdum. Nam porttitor id risus a ultrices. Proin mi nulla, ultricies eu ipsum vitae, fermentum congue nunc. Phasellus a dictum massa. Nunc quis lacus et ex vulputate molestie ac eget est. Integer porttitor placerat quam, eu convallis sem tristique sit amet. Nam at risus fringilla, pharetra mauris tincidunt, imperdiet nisi.
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
 
@@ -159,87 +181,5 @@
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 <!-- Font Awesome -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
-<!-- ChartJS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
-
-<script>
-    var chartOne = document.getElementById('chartOne');
-    var myChart = new Chart(chartOne, {
-        type: 'bar',
-        data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
-    });
-
-    var chartTwo = document.getElementById('chartTwo');
-    var myLineChart = new Chart(chartTwo, {
-        type: 'line',
-        data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
-    });
-</script>
 </body>
 </html>
-
-

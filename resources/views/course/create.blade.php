@@ -148,11 +148,11 @@
                             @method('post')
                             <div class="">
                                 <label class="block text-sm text-gray-600" for="name">Title</label>
-                                <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="name" name="title" type="text" required="" placeholder="Name of the course" aria-label="Name">
+                                <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="title" name="title" type="text" required="" placeholder="Name of the course" aria-label="Name">
                             </div>
                             <div class="mt-2">
-                                    <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label>
-                                    <select id="countries" name="level" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    <label for="countries" class="block mb-2 text-sm font-medium text-gray-900">Select an option</label>
+                                    <select id="levels" name="level" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                                         <option selected>Choose a level</option>
                                         <option value="1">Beginner</option>
                                         <option value="2">Elementary</option>

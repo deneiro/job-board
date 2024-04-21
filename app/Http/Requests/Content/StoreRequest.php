@@ -24,7 +24,10 @@ class StoreRequest extends FormRequest
         return [
             'title' => 'required|max:255',
             'author' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
+            'introduction' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'grammar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'vocabulary' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'tasks' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
         ];
     }
 }

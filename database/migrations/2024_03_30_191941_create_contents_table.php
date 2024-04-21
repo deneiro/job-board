@@ -20,9 +20,16 @@ return new class extends Migration
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
 
+            $table->foreignId('user_id')
+                ->constrained()
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
+
             $table->string('title');
-            $table->string('author');
-            $table->binary('image')->nullable();
+            $table->binary('introduction');
+            $table->binary('grammar');
+            $table->binary('vocabulary');
+            $table->binary('tasks');
 
             $table->timestamps();
         });

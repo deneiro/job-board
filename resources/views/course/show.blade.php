@@ -152,6 +152,7 @@
                         <tr>
                             <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm"> Title </th>
                             <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm"> Author </th>
+                            <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm"> </th>
                         </tr>
                         </thead>
 
@@ -160,6 +161,11 @@
                         <tr>
                             <td class="w-1/3 text-left py-3 px-4">{{ $content->title }}</td>
                             <td class="w-1/3 text-left py-3 px-4">{{ $content->author }}</td>
+                            <td class="w-1/3 text-left py-3 px-4">
+                                <button type="button" class="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2">
+                                    <a href="{{ route('content.show', ['content' => $content->id, 'course' => $course->id]) }}"> <i class=""></i> Open</a>
+                                </button>
+                            </td>
                         </tr>
                         @endforeach
                         </tbody>

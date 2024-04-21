@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Content\StoreRequest;
 use App\Models\Content;
 use App\Models\Course;
+use Illuminate\Support\Facades\Auth;
 
 
 class ContentController extends Controller
@@ -25,27 +26,32 @@ class ContentController extends Controller
 
     public function store(StoreRequest $request, Course $course)
     {
+        $user = Auth::user();
+
         $data = $request->validated();
 
-        if ($request->hasFile('image'))
-        {
-            // Store the image file
-            $imagePath = $request->file('image')->store('images', 'public'); // Store image in storage/app/public/images directory
-
-            // Save the image path in the database
-            $data['image'] = $imagePath;
-        }
-
         $content = new Content();
+        $content->user_id = $user->id;
         $content->course_id = $course->id;
+
         $content->title = $data['title'];
-        $content->author = $data['author'];
-        if (isset($data['image'])) {
-            $content->image = $data['image'];
+        $content->author = $user->name;
+
+        foreach (['introduction', 'grammar', 'vocabulary', 'tasks'] as $field) {
+            if ($request->hasFile($field)) {
+                $path = $request->file($field)->store('public/content_images');
+                $content->{$field} = $path;
+            }
         }
 
         $content->save();
 
         return redirect()->route('course.show', ['course' => $course->id]);
+    }
+
+    public function show()
+    {
+        $content = Content::all();
+        return view('content.show', compact(['content']));
     }
 }

@@ -150,14 +150,23 @@
                                 <label class="block text-sm text-gray-600" for="title">Title of lesson</label>
                                 <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="title" name="title" type="text" required="" placeholder="Name of the course" aria-label="Name">
                             </div>
-                            <div class="">
-                                <label class="block text-sm text-gray-600" for="author">Author</label>
-                                <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="author" name="author" type="text" required="" placeholder="Type your name" aria-label="Name">
+                            <div class="form-group m-2">
+                                <label class="block text-sm text-gray-600" for="introduction">Introduction</label>
+                                <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none" aria-describedby="file_input_help" name='introduction' id="introduction" type="file">
                             </div>
-                            <div class="form-group m-2" >
-                                <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" name='image' id="file_input" type="file">
-                                <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF</p>
+                            <div class="form-group m-2">
+                                <label class="block text-sm text-gray-600" for="grammar">Grammar</label>
+                                <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none" aria-describedby="file_input_help" name='grammar' id="grammar" type="file">
                             </div>
+                            <div class="form-group m-2">
+                                <label class="block text-sm text-gray-600" for="vocabulary">Vocabulary</label>
+                                <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none" aria-describedby="file_input_help" name='vocabulary' id="vocabulary" type="file">
+                            </div>
+                            <div class="form-group m-2">
+                                <label class="block text-sm text-gray-600" for="tasks">Tasks</label>
+                                <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none" aria-describedby="file_input_help" name='tasks' id="tasks" type="file">
+                            </div>
+                            <p class="mt-1 text-sm text-gray-500" id="file_input_help">SVG, PNG, JPG or GIF</p>
                             <div class="mt-6">
                                 <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" type="submit">Submit</button>
                             </div>
