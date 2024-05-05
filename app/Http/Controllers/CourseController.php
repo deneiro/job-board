@@ -10,11 +10,6 @@ use Illuminate\Support\Facades\Auth;
 
 class CourseController extends Controller
 {
-    public function landingPage()
-    {
-        $courses = Course::all(); // Fetch all courses (you might want to paginate this if there are many courses)
-        return view('welcome', compact('courses'));
-    }
     public function index()
     {
         $user = Auth::user();

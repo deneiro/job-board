@@ -21,6 +21,69 @@
         .account-link:hover { background: #3d68ff; }
     </style>
 </head>
+<body class="theme-dark h-full scroll-smooth">
+<div id="main" class="flex min-h-full flex-col justify-center">
+    <div class="flex min-h-full flex-col justify-center px-6 lg:px-8">
+        <div class="py-6 sm:mx-auto sm:w-full sm:max-w-sm">
+            <div class="flex justify-center pb-8">
+                <a href="">
+                    <img src="/storage/app/public/images/selected_logo.png" height="90" width="90" alt="logo">
+                </a>
+            </div>
+            <h1 class="mb-6 text-center text-3xl font-medium">Sign in to your account</h1>
+            <div class="message-container mb-2">
+                <div class="text-green-400 text-sm text-center p-2 rounded border border-green-900 bg-green-950" style="display: none;">
+
+                </div><div class="text-red-400 text-sm text-center p-2 rounded border border-red-900 bg-red-950" style="display: none;">
+
+                </div>
+            </div>
+            <form class="space-y-3">
+                <div>
+                    <label class="input-label" for="labeled-input-email">Email</label>
+                    <input class="block input w-full" type="email" id="labeled-input-email" autofocus="" data-sider-select-id="32cc6673-4fb5-4910-9437-a66a09708304">
+                </div>
+                <div>
+                    <div class="flex items-center justify-between">
+                        <label class="input-label" for="labeled-input-password">Password</label>
+                        <span class="font-medium text-sm">
+                            <a href="#" class="text-accent" tabindex="-1">Forgot password?</a>
+                        </span>
+                    </div>
+                    <input class="block input w-full" type="password" id="labeled-input-password">
+                </div>
+                <div style="display: none;">
+                    <label class="input-label" for="labeled-input-mfa">2-factor authentication code</label>
+                    <input class="block input w-full" type="text" inputmode="numeric" placeholder="000000" autocomplete="one-time-code" id="labeled-input-mfa">
+                </div>
+                <div>
+
+                </div>
+                <p>
+                    <button type="button" class="font-medium text-sm text-accent" style="display: none;">Use recovery code</button>
+                </p>
+                <div class="pt-2">
+                    <button class="button button-primary w-full">Sign in</button>
+                </div>
+            </form>
+            <div class="my-8 leading-6 font-medium text-sm">
+                <p class="text-center text-muted">Don't have an account?
+                    <a href="#" class="text-accent">Create an account</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://js.stripe.com/v3/"></script>
+<script src="static.js"></script>
+<script src="account.js"></script>
+
+
+<iframe name="__privateStripeMetricsController2260" frameborder="0" allowtransparency="true" scrolling="no" role="presentation" allow="payment *" src="https://js.stripe.com/v3/m-outer-3437aaddcdf6922d623e172c2d6f9278.html#url=https%3A%2F%2Fobsidian.md%2Faccount&amp;title=Account%20-%20Obsidian&amp;referrer=https%3A%2F%2Fobsidian.md%2F&amp;muid=698093dc-ac77-4fe7-abaf-2839de389fb9cf5731&amp;sid=d7b77e10-9297-419a-92f8-0afa7c8bc0144afb3c&amp;version=6&amp;preview=false" aria-hidden="true" tabindex="-1" style="border: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important; user-select: none !important;"></iframe></body>
+
+
+
+
 <body class="bg-gray-100 font-family-karla flex">
 
 

@@ -26,6 +26,7 @@ return new class extends Migration
                 ->cascadeOnUpdate();
 
             $table->string('title');
+            $table->string('author');
             $table->binary('introduction');
             $table->binary('grammar');
             $table->binary('vocabulary');

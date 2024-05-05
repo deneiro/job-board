@@ -16,14 +16,14 @@
         .cta-btn { color: #3d68ff; }
         .upgrade-btn { background: #1947ee; }
         .upgrade-btn:hover { background: #0038fd; }
-        .active-nav-link { background: #1947ee; }
-        .nav-item:hover { background: #1947ee; }
+        .active-nav-link { background: #14c625; }
+        .nav-item:hover { background: #14c625; }
         .account-link:hover { background: #3d68ff; }
     </style>
 </head>
 <body class="bg-gray-100 font-family-karla flex">
 
-<aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
+<aside class="relative bg-green-400 h-screen w-64 hidden sm:block shadow-xl">
     <div class="p-6">
         <a href="index.html" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">Admin</a>
     </div>
@@ -137,35 +137,35 @@
         <main class="w-full flex-grow p-6">
             <h1 class="w-full text-3xl text-black pb-6">Forms</h1>
 
-            <div class="flex flex-wrap">
-                <div class="w-full lg:w-1/2 my-6 pr-0 lg:pr-2">
-                    <p class="text-xl pb-6 flex items-center">
+            <div class="flex flex-wrap ">
+                <div class="w-full lg:w-1/2 my-6 pr-0 lg:pr-2 ">
+                    <p class="text-xl pb-6 flex items-center ">
                         <i class="fas fa-list mr-3"></i> Add course
                     </p>
-                    <div class="leading-loose">
-                        <form action="{{ route('course.store') }}" method="post" class="p-10 bg-white rounded shadow-xl">
+                    <div class="leading-loose ">
+                        <form action="{{ route('course.store') }}" method="post" class="p-10 bg-green-100 rounded-lg shadow-xl ">
                             @csrf
                             @method('post')
                             <div class="">
                                 <label class="block text-sm text-gray-600" for="name">Title</label>
-                                <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="title" name="title" type="text" required="" placeholder="Name of the course" aria-label="Name">
+                                <input class="w-full px-5 py-1 text-gray-700 bg-white rounded" id="title" name="title" type="text" required="" placeholder="Name of the course" aria-label="Name">
                             </div>
                             <div class="mt-2">
                                     <label for="countries" class="block mb-2 text-sm font-medium text-gray-900">Select an option</label>
-                                    <select id="levels" name="level" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                    <select id="levels" name="level" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-400 focus:border-green-300 block w-full p-2.5">
                                         <option selected>Choose a level</option>
-                                        <option value="1">Beginner</option>
-                                        <option value="2">Elementary</option>
-                                        <option value="3">Intermediate</option>
-                                        <option value="4">Advanced</option>
+                                        <option value="1" class="hover:bg-green-100 hover:text-green-800">Beginner</option>
+                                        <option value="2" class="hover:bg-green-100 hover:text-green-800">Elementary</option>
+                                        <option value="3" class="hover:bg-green-100 hover:text-green-800">Intermediate</option>
+                                        <option value="4" class="hover:bg-green-100 hover:text-green-800">Advanced</option>
                                     </select>
                             </div>
                             <div class="mt-2">
                                 <label class=" block text-sm text-gray-600" for="message">Description</label>
-                                <textarea class="w-full px-5 py-2 text-gray-700 bg-gray-200 rounded" id="message" name="description" rows="6" required="" placeholder="Your inquiry.." aria-label="Email"></textarea>
+                                <textarea class="w-full px-5 py-2 text-gray-700 bg-white rounded" id="message" name="description" rows="6" required="" placeholder="Your inquiry.." aria-label="Email"></textarea>
                             </div>
                             <div class="mt-6">
-                                <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" type="submit">Submit</button>
+                                <button class="px-4 py-1 text-white font-light tracking-wider bg-green-700 rounded" type="submit">Add new course</button>
                             </div>
                         </form>
                     </div>

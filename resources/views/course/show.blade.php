@@ -16,14 +16,14 @@
         .cta-btn { color: #3d68ff; }
         .upgrade-btn { background: #1947ee; }
         .upgrade-btn:hover { background: #0038fd; }
-        .active-nav-link { background: #1947ee; }
-        .nav-item:hover { background: #1947ee; }
+        .active-nav-link { background: #14c625; }
+        .nav-item:hover { background: #14c625; }
         .account-link:hover { background: #3d68ff; }
     </style>
 </head>
 <body class="bg-gray-100 font-family-karla flex">
 
-<aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
+<aside class="relative bg-green-400 h-screen w-64 hidden sm:block shadow-xl">
     <div class="p-6">
         <a href="index.html" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">Admin</a>
         <button class="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">

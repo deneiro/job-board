@@ -8,7 +8,7 @@ use App\Models\User;
 
 
 
-
+Route::get('/', fn()=> to_route('login'))->name('welcome');
 
 Route::controller(\App\Http\Controllers\Auth\AuthLoginRegisterController::class)->group( function () {
     Route::get('/register', 'register')->name('register');
@@ -19,15 +19,6 @@ Route::controller(\App\Http\Controllers\Auth\AuthLoginRegisterController::class)
     Route::post('/logout', 'logo ut')->name('logout');
 });
 
-
-//Route::group(['prefix'=>'user'], function (){
-//
-//    Route::get('/create', [UserController::class, 'create'])->name('user.create');
-//    Route::post('/', [UserController::class, 'store'])->name('user.store');
-//});
-
-Route::get('/', [CourseController::class, 'landingPage'])->name('welcome');
-
 Route::group(['prefix' => 'course'], function () {
     Route::get('/', [CourseController::class, 'index'])->name('course.index');
     Route::get('/create', [CourseController::class, 'create'])->name('course.create');
@@ -35,7 +26,7 @@ Route::group(['prefix' => 'course'], function () {
     Route::get('/{course}', [CourseController::class, 'show'])->name('course.show');
 });
 
-Route::group(['prefix' => '{course}'], function (){
+Route::group(['prefix' => 'course/{course}'], function (){
     Route::get('/create', [ContentController::class, 'create'])->name('content.create');
     Route::post('/', [ContentController::class, 'store'])->name('content.store');
     Route::get('/{content}', [ContentController::class, 'show'])->name('content.show');

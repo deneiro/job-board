@@ -16,18 +16,18 @@
         .cta-btn { color: #3d68ff; }
         .upgrade-btn { background: #1947ee; }
         .upgrade-btn:hover { background: #0038fd; }
-        .active-nav-link { background: #1947ee; }
-        .nav-item:hover { background: #1947ee; }
+        .active-nav-link { background: #14c625; }
+        .nav-item:hover { background: #14c625; }
         .account-link:hover { background: #3d68ff; }
     </style>
 </head>
 <body class="bg-gray-100 font-family-karla flex">
 
-<aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
+<aside class="relative bg-green-400 h-screen w-64 hidden sm:block shadow-xl">
     <div class="p-6">
         <a href="#" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">{{ $user -> name }}</a>
         <button class="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
-            <a href="{{ route('course.create') }}"><i class="fas fa-plus mr-3"></i> New Course</a>
+            <a href="{{ route('course.create') }}"> <i class="fas fa-plus mr-3"></i> New Course</a>
         </button>
     </div>
     <nav class="text-white text-base font-semibold pt-3">
@@ -63,12 +63,14 @@
 </aside>
 
 <div class="w-full flex flex-col h-screen overflow-y-hidden">
+
     <!-- Desktop Header -->
-    <header class="w-full items-center bg-white py-2 px-6 hidden sm:flex">
+    <header class=" flex w-full items-center bg-white py-2 px-6 hidden sm:flex">
+        <h1 class=" px-12 py-2.5 text-3xl font-bold text-black pb-6">Courses</h1>
         <div class="w-1/2"></div>
         <div x-data="{ isOpen: false }" class="relative w-1/2 flex justify-end">
             <button @click="isOpen = !isOpen" class="realtive z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
-                <img src="https://source.unsplash.com/uJ8LNVCBjFQ/400x400">
+                <img src="#">
             </button>
             <button x-show="isOpen" @click="isOpen = false" class="h-full w-full fixed inset-0 cursor-default"></button>
             <div x-show="isOpen" class="absolute w-32 bg-white rounded-lg shadow-lg py-2 mt-16">
@@ -136,11 +138,10 @@
         </button> -->
     </header>
 
-    <div class="w-full overflow-x-hidden border-t flex flex-col">
+    <div class="w-full overflow-x-hidden border-t  flex flex-col">
         <main class="w-full flex-grow p-6">
-            <h1 class="text-3xl text-black pb-6">Courses</h1>
             @foreach($courses as $course)
-                <a href="{{ route('course.show', $course->id) }}" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 mb-4">
+                <a href="{{ route('course.show', $course->id) }}" class="flex flex-col items-center bg-green-100 border border-green-50 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-green-50 mb-4">
                     <div class="flex flex-col justify-between p-4 ">
                         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Title: {{ $course->title }}</h5>
                         <div>

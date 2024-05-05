@@ -26,6 +26,7 @@ class ContentController extends Controller
 
     public function store(StoreRequest $request, Course $course)
     {
+        //dd('a');
         $user = Auth::user();
 
         $data = $request->validated();
